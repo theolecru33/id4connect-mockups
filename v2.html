@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iD4Connect — Orchestration de données sans stockage [V2]</title>
+<meta name="description" content="iD4Connect oriente vos données pendant leur transit. En temps réel, sans copie, sans migration. Souveraineté garantie.">
+<meta name="theme-color" content="#F8F7F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/v2.css">
+<script>
+  (function(){
+    try {
+      const stored = localStorage.getItem('id4-theme');
+      const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    } catch(e) {}
+  })();
+</script>
+</head>
+<body class="v2">
+
+<div class="page-grid" aria-hidden="true"></div>
+
+
+<!-- ============ FLOATING HEADER ============ -->
+<header class="hd2" id="hd2">
+  <div class="hd2__shell">
+    <a class="hd2__brand" href="/">
+      <span class="brand-italic">iD4Connect</span>
+    </a>
+    <nav class="hd2__nav">
+      <a href="#plateforme">Plateforme</a>
+      <a href="#resultats">Résultats</a>
+      <a href="#faq">FAQ</a>
+      <a href="#expertise">Expertise</a>
+    </nav>
+    <div class="hd2__tools">
+      <div class="ver">
+        <a class="ver__opt" href="index.html">V1</a>
+        <a class="ver__opt is-active" href="v2.html">V2</a>
+        <a class="ver__opt" href="v3.html">V3</a>
+        <a class="ver__opt" href="vo.html">VO</a>
+      </div>
+      <a href="#cta" class="btn-pill btn-pill--dark">Demandez une démo</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Thème">
+        <svg class="ic ic--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M3 12h2M19 12h2M5.6 18.4 7 17M17 7l1.4-1.4"/></svg>
+        <svg class="ic ic--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="lang-flag" aria-label="Langue">
+        <span class="flag">FR</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+
+<!-- ============ HERO ============ -->
+<section class="v2-hero">
+  <div class="wrap-narrow">
+    <h1 class="big-h1">
+      Orchestration de données <span class="under-green">sans stockage.</span>
+    </h1>
+    <p class="big-sub">
+      Détectez, qualifiez et orientez vos flux pendant leur transit. En temps réel, sans copie, sans migration.
+    </p>
+    <a href="#cta" class="btn-pill btn-pill--dark btn-pill--lg">
+      <span class="spark"></span>
+      Demandez une démo gratuite
+    </a>
+  </div>
+
+  <div class="tech-strip">
+    <span>postgres</span>
+    <span>kafka</span>
+    <span>mongodb</span>
+    <span>salesforce</span>
+    <span>aws</span>
+    <span>azure</span>
+    <span>ovh</span>
+    <span>scaleway</span>
+  </div>
+</section>
+
+
+<!-- ============ PLATEFORME (More Work) ============ -->
+<section class="big-section" id="plateforme">
+  <div class="wrap">
+    <div class="big-card">
+      <header class="split-head">
+        <h2 class="huge-title">Plateforme.</h2>
+        <span class="split-head__sub">Captures et mockups depuis la console iD4Connect.</span>
+      </header>
+
+      <div class="thumbs-grid">
+        <article class="thumb thumb--datagraph">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>DataGraph / Live</em></div>
+          <div class="thumb__inner thumb__inner--graph">
+            <div class="g-node g-node--hub"><span>DataGraph</span></div>
+            <div class="g-line g-line--1"></div>
+            <div class="g-line g-line--2"></div>
+            <div class="g-line g-line--3"></div>
+            <div class="g-node g-node--cell" style="--x:18%;--y:62%"><span>DC-001</span></div>
+            <div class="g-node g-node--cell" style="--x:50%;--y:62%"><span>DC-002</span></div>
+            <div class="g-node g-node--cell" style="--x:82%;--y:62%"><span>DC-003</span></div>
+          </div>
+        </article>
+
+        <article class="thumb thumb--sources">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>Sources</em></div>
+          <div class="thumb__inner thumb__inner--sources">
+            <div class="src-row"><span class="src-name">postgres-erp</span><span class="src-bar"><b style="width:78%"></b></span></div>
+            <div class="src-row"><span class="src-name">kafka-events</span><span class="src-bar"><b style="width:64%"></b></span></div>
+            <div class="src-row"><span class="src-name">mqtt-iot</span><span class="src-bar"><b style="width:48%"></b></span></div>
+            <div class="src-row"><span class="src-name">salesforce</span><span class="src-bar"><b style="width:32%"></b></span></div>
+            <div class="src-row"><span class="src-name">stripe-api</span><span class="src-bar"><b style="width:22%"></b></span></div>
+          </div>
+        </article>
+
+        <article class="thumb thumb--cell">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>DataCell</em></div>
+          <div class="thumb__inner thumb__inner--cell">
+            <span class="dc-tag">DataCell active</span>
+            <span class="dc-num">200</span>
+            <span class="dc-lbl">fonctionnalités</span>
+          </div>
+        </article>
+
+        <article class="thumb thumb--pipeline">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>Pipeline</em></div>
+          <div class="thumb__inner thumb__inner--pipeline">
+            <div class="pp-row"><i class="pp-sq pp-sq--on"></i><span>Validation schéma</span></div>
+            <div class="pp-row"><i class="pp-sq pp-sq--on"></i><span>Déduplication</span></div>
+            <div class="pp-row"><i class="pp-sq pp-sq--on"></i><span>Enrichissement</span></div>
+            <div class="pp-row"><i class="pp-sq pp-sq--on"></i><span>Conformité RGPD</span></div>
+            <div class="pp-row"><i class="pp-sq"></i><span>Routage</span></div>
+          </div>
+        </article>
+
+        <article class="thumb thumb--metrics">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>Métriques</em></div>
+          <div class="thumb__inner thumb__inner--metrics">
+            <div class="mt-big">142K</div>
+            <div class="mt-lbl">événements / seconde</div>
+            <svg class="mt-chart" viewBox="0 0 200 60" preserveAspectRatio="none">
+              <path d="M0 50 L20 38 L40 42 L60 28 L80 32 L100 22 L120 28 L140 14 L160 20 L180 10 L200 14" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </article>
+
+        <article class="thumb thumb--deploy">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>Architecture</em></div>
+          <div class="thumb__inner thumb__inner--deploy">
+            <div class="dp-card"><span>On-Premise</span></div>
+            <div class="dp-card dp-card--alt"><span>Cloud privé</span></div>
+            <div class="dp-card"><span>Multi-cloud</span></div>
+          </div>
+        </article>
+
+        <article class="thumb thumb--compliance">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>Conformité</em></div>
+          <div class="thumb__inner thumb__inner--compliance">
+            <span class="cmp-bdg">RGPD</span>
+            <span class="cmp-bdg">HDS</span>
+            <span class="cmp-bdg">ISO 27001</span>
+            <span class="cmp-bdg">SecNumCloud</span>
+            <span class="cmp-bdg">Schrems II</span>
+            <span class="cmp-bdg">Anti CLOUD Act</span>
+          </div>
+        </article>
+
+        <article class="thumb thumb--map">
+          <div class="thumb__chrome"><span></span><span></span><span></span><em>Déploiements EU</em></div>
+          <div class="thumb__inner thumb__inner--map">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="xMidYMid meet">
+              <rect x="40" y="20" width="32" height="22" rx="3" fill="currentColor" opacity="0.18"/>
+              <rect x="80" y="14" width="46" height="36" rx="3" fill="currentColor" opacity="0.16"/>
+              <rect x="62" y="46" width="36" height="28" rx="3" fill="currentColor" opacity="0.20"/>
+              <rect x="100" y="50" width="48" height="42" rx="3" fill="currentColor" opacity="0.14"/>
+              <rect x="44" y="70" width="22" height="20" rx="3" fill="currentColor" opacity="0.18"/>
+              <rect x="124" y="86" width="36" height="22" rx="3" fill="currentColor" opacity="0.14"/>
+              <rect x="84" y="92" width="20" height="16" rx="2" fill="currentColor" opacity="0.16"/>
+              <g class="map-pin"><rect x="92" y="58" width="8" height="8" fill="var(--mint)"/></g>
+              <g class="map-pin"><rect x="62" y="40" width="6" height="6" fill="var(--mint)"/></g>
+              <g class="map-pin"><rect x="118" y="68" width="6" height="6" fill="var(--mint)"/></g>
+            </svg>
+            <span class="map-label">7 datacenters européens</span>
+          </div>
+        </article>
+      </div>
+
+      <button class="show-more">Voir plus<span class="chev"></span></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ READY CARD (dark) ============ -->
+<section class="ready-section" id="cta">
+  <div class="wrap">
+    <div class="ready-card">
+      <h2 class="ready-card__title">Prêt à reprendre <em>le contrôle</em> ?</h2>
+      <p class="ready-card__sub">Construisons ensemble une orchestration souveraine. Trente minutes pour comprendre comment iD4Connect s'intègre.</p>
+      <div class="ready-card__cta">
+        <a href="#" class="btn-pill btn-pill--white">Demandez une démo<span class="arr-d"></span></a>
+        <a href="#" class="btn-pill btn-pill--outline-d"><span class="phone-ic"></span>+33 1 84 88 67 88</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ RÉSULTATS ============ -->
+<section class="big-section" id="resultats">
+  <div class="wrap">
+    <div class="big-card">
+      <header class="split-head">
+        <h2 class="huge-title">Résultats.</h2>
+        <span class="split-head__sub">Une plateforme conçue pour la performance temps réel.</span>
+      </header>
+
+      <div class="results-grid">
+
+        <article class="r-card r-card--chart">
+          <div class="r-meta">
+            <span class="r-pill"><i class="dot dot--brand"></i>8 mai 2026</span>
+            <span class="r-pill"><i class="sq sq--mint"></i>Throughput <strong>142 081</strong></span>
+            <span class="r-pill"><i class="sq sq--brand-light"></i>Latence <strong>12 ms</strong></span>
+          </div>
+          <svg class="r-chart" viewBox="0 0 700 240" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--mint)" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="var(--mint)" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="r-chart-grid">
+              <line x1="0" y1="60" x2="700" y2="60" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="3 3"/>
+              <line x1="0" y1="120" x2="700" y2="120" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="3 3"/>
+              <line x1="0" y1="180" x2="700" y2="180" stroke="currentColor" stroke-opacity="0.08" stroke-dasharray="3 3"/>
+            </g>
+            <path d="M0 200 L50 180 L100 170 L150 130 L200 140 L250 100 L300 110 L350 70 L400 90 L450 60 L500 70 L550 40 L600 60 L650 30 L700 50 L700 240 L0 240 Z" fill="url(#grad)"/>
+            <path d="M0 200 L50 180 L100 170 L150 130 L200 140 L250 100 L300 110 L350 70 L400 90 L450 60 L500 70 L550 40 L600 60 L650 30 L700 50" fill="none" stroke="var(--mint)" stroke-width="2.5"/>
+            <g class="r-chart-x">
+              <text x="50" y="232" text-anchor="middle">00h</text>
+              <text x="200" y="232" text-anchor="middle">06h</text>
+              <text x="350" y="232" text-anchor="middle">12h</text>
+              <text x="500" y="232" text-anchor="middle">18h</text>
+              <text x="650" y="232" text-anchor="middle">24h</text>
+            </g>
+          </svg>
+        </article>
+
+        <article class="r-card r-card--text">
+          <h3>Une plateforme conçue pour des résultats concrets</h3>
+          <div class="feat-grid">
+            <div>
+              <h4>Orchestration temps réel</h4>
+              <p>Vos flux qualifiés en transit, sans latence batch.</p>
+            </div>
+            <div>
+              <h4>Audit & traçabilité</h4>
+              <p>Chaque évènement loggé, conservé conformément RGPD.</p>
+            </div>
+            <div>
+              <h4>100% Stateless</h4>
+              <p>Zéro stockage permanent, zéro point de défaillance.</p>
+            </div>
+            <div>
+              <h4>Conformité by design</h4>
+              <p>Règles métier appliquées au niveau du flux.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="bento-row">
+        <article class="bento bento--wide">
+          <div>
+            <h4>Service de bout en bout</h4>
+            <p>Bénéficiez d'un accompagnement complet : intégration, supervision, gouvernance.</p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tg">Architecture</span>
+            <span class="tg">Connecteurs</span>
+            <span class="tg">DataCells</span>
+            <span class="tg">Conformité</span>
+            <span class="tg">Run</span>
+          </div>
+        </article>
+
+        <article class="bento bento--wide">
+          <div>
+            <h4>Latence éclair</h4>
+            <p>Parce que personne n'aime attendre une donnée fraîche.</p>
+          </div>
+          <div class="ring">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-opacity="0.15" stroke-width="4"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="var(--mint)" stroke-width="4" stroke-dasharray="264 264" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+            </svg>
+            <span class="ring-num">100</span>
+            <span class="ring-lbl">ms</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="micro-row">
+        <article class="micro">
+          <span class="micro__icon icon--integ"></span>
+          <span class="micro__title">Parfaitement intégré</span>
+        </article>
+        <article class="micro">
+          <span class="micro__icon icon--scale"></span>
+          <span class="micro__title">Conçu pour scaler</span>
+        </article>
+        <article class="micro">
+          <span class="micro__icon icon--clock"></span>
+          <span class="micro__title">Configuration simple</span>
+        </article>
+        <article class="micro">
+          <span class="micro__icon icon--shield"></span>
+          <span class="micro__title">Sécurisé & conforme</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FAQ ============ -->
+<section class="big-section" id="faq">
+  <div class="wrap">
+    <div class="big-card">
+      <header class="split-head">
+        <h2 class="huge-title">FAQ.</h2>
+        <span class="split-head__sub">Réponses claires à vos questions techniques.</span>
+      </header>
+
+      <div class="faq-card">
+        <h3>Bon à savoir</h3>
+        <div class="faq-list">
+          <details>
+            <summary>Pourquoi iD4Connect ?<span class="chev"></span></summary>
+            <p>Parce que vos données ne devraient jamais quitter votre périmètre. iD4Connect est le seul middleware d'orchestration qui traite la donnée en transit, sans la stocker, sans la dupliquer.</p>
+          </details>
+          <details>
+            <summary>Combien de temps pour déployer ?<span class="chev"></span></summary>
+            <p>Quelques jours sur un environnement existant. Aucune migration, pas de zone de staging, pas de re-architecture côté SI. Les DataCells s'exécutent là où vit la donnée.</p>
+          </details>
+          <details>
+            <summary>Quel est le coût ?<span class="chev"></span></summary>
+            <p>Cinq fois moins cher qu'une plateforme data classique. Tarification basée sur le volume orchestré, pas sur le stockage (puisqu'il n'y en a pas).</p>
+          </details>
+          <details>
+            <summary>Quelles technologies utilisez-vous ?<span class="chev"></span></summary>
+            <p>Stack 100% européenne. Architecture stateless, Zero Trust, cloud agnostique. Compatible PostgreSQL, MongoDB, Kafka, MQTT, REST, Salesforce, Snowflake et soixante-dix autres connecteurs natifs.</p>
+          </details>
+          <details>
+            <summary>iD4Connect est-il conforme RGPD ?<span class="chev"></span></summary>
+            <p>Conformité by design, pas en aval. Hors juridiction CLOUD Act. Compatible HDS, ISO 27001, SecNumCloud, Schrems II.</p>
+          </details>
+          <details>
+            <summary>Proposez-vous des consultations sur site ?<span class="chev"></span></summary>
+            <p>Oui. Pour les secteurs régulés (Santé, Défense, Public), nous nous déplaçons. Démo technique de trente minutes possible en visio ou sur site.</p>
+          </details>
+          <details>
+            <summary>Pourquoi pas Snowflake ou Databricks ?<span class="chev"></span></summary>
+            <p>iD4Connect ne remplace pas vos outils, il les rend meilleurs. Compatible avec Snowflake / Databricks en aval. Mais vos données ne transitent pas par un cloud américain.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-bottom">
+        <article class="info-card">
+          <span class="info-card__icon icon--pin"></span>
+          <h4>Made in Europe</h4>
+          <p>Quinze ans de R&D européenne. Stack souverain, hors juridiction CLOUD Act. Contact direct, pas de centre d'appel anonyme.</p>
+        </article>
+        <article class="info-card info-card--dark">
+          <span class="info-card__icon icon--key"></span>
+          <h4>Projet sur mesure ?</h4>
+          <p>Pour les secteurs régulés ou les architectures complexes, nous établissons un devis personnalisé.</p>
+          <a class="info-card__link">Demander un devis<span class="arr-d"></span></a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ EXPERTISE ============ -->
+<section class="big-section" id="expertise">
+  <div class="wrap">
+    <div class="big-card">
+      <header class="split-head">
+        <h2 class="huge-title">Expertise.</h2>
+        <span class="split-head__sub">Ce que nous faisons, ce que nous défendons.</span>
+      </header>
+
+      <div class="stats4">
+        <div class="stat4"><span class="stat4__num">200</span><span class="stat4__lbl">Fonctionnalités intégrées</span></div>
+        <div class="stat4"><span class="stat4__num">70+</span><span class="stat4__lbl">Connecteurs natifs</span></div>
+        <div class="stat4"><span class="stat4__num">15</span><span class="stat4__lbl">Années de R&D européenne</span></div>
+        <div class="stat4"><span class="stat4__num">100%</span><span class="stat4__lbl">Stack souverain</span></div>
+      </div>
+
+      <h3 class="block-title">Nos services</h3>
+      <div class="services-grid">
+        <article class="svc">
+          <span class="svc__icon icon--datacell"></span>
+          <h4>DataCell</h4>
+          <p>Unité de traitement autonome embarquant deux cents fonctionnalités. S'exécute là où vit la donnée.</p>
+        </article>
+        <article class="svc">
+          <span class="svc__icon icon--datagraph"></span>
+          <h4>DataGraph</h4>
+          <p>Orchestration temps réel des flux. Cartographie, gouvernance et conformité centralisées.</p>
+        </article>
+        <article class="svc">
+          <span class="svc__icon icon--archi"></span>
+          <h4>Architecture</h4>
+          <p>Stateless, Zero Trust, cloud agnostique. Trois modes de déploiement : on-premise, cloud privé, multi-cloud.</p>
+        </article>
+        <article class="svc">
+          <span class="svc__icon icon--conform"></span>
+          <h4>Conformité</h4>
+          <p>RGPD, HDS, ISO 27001, SecNumCloud. Conformité by design, pas en post-traitement.</p>
+        </article>
+      </div>
+
+      <h3 class="block-title">Secteurs déployés</h3>
+      <div class="industry-tags">
+        <span class="ind"><span>Cybersécurité</span><em>12+ projets</em></span>
+        <span class="ind"><span>Finance & Banque</span><em>9+ projets</em></span>
+        <span class="ind"><span>Industrie & IoT</span><em>8+ projets</em></span>
+        <span class="ind"><span>Santé</span><em>6+ projets</em></span>
+        <span class="ind"><span>Secteur Public</span><em>5+ projets</em></span>
+        <span class="ind"><span>Énergie</span><em>4+ projets</em></span>
+        <span class="ind"><span>Smart Building</span><em>4+ projets</em></span>
+        <span class="ind"><span>Retail</span><em>3+ projets</em></span>
+        <span class="ind"><span>Logistique</span><em>3+ projets</em></span>
+      </div>
+
+      <hr class="hr-soft">
+
+      <div class="tech-row">
+        <div>
+          <h4>Architecture de pointe</h4>
+          <p>Stateless, Zero Trust, Cloud agnostique, Auto-healing, Souverain</p>
+        </div>
+        <div class="tech-badges">
+          <span class="t-bdg t-bdg--dark"><span class="rocket"></span>Latence sub 20 ms</span>
+          <span class="t-bdg t-bdg--brand"><span class="shield"></span>Conforme RGPD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft2">
+  <div class="wrap ft2__inner">
+    <div class="ft2__brand">
+      <span class="brand-italic">iD4Connect</span>
+      <p>Orchestration de données sans stockage. Deep tech européen, TRL 9.</p>
+    </div>
+    <div class="ft2__cols">
+      <div><span>Plateforme</span><ul><li><a href="#plateforme">DataCell</a></li><li><a href="#plateforme">DataGraph</a></li><li><a href="#plateforme">Architecture</a></li></ul></div>
+      <div><span>Entreprise</span><ul><li><a href="#">Histoire</a></li><li><a href="#">Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><span>Légal</span><ul><li><a href="#">Mentions</a></li><li><a href="#">RGPD</a></li><li><a href="#">Cookies</a></li></ul></div>
+    </div>
+  </div>
+  <div class="ft2__bottom">
+    <span>© 2026 iD4Connect</span>
+    <span>Made in Europe / TRL 9 / Stateless by design</span>
+  </div>
+</footer>
+
+<script src="js/v2.js"></script>
+</body>
+</html>

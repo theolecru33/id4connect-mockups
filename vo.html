@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iD4Connect — Version Originale (VO)</title>
+<meta name="description" content="Version originale du site iD4Connect telle que livrée dans le thème WordPress V2.">
+<meta name="theme-color" content="#F5F4F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C1221" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/vo.css">
+<style>
+/* === Mini bandeau version (par-dessus le header WP original) === */
+.vo-bar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:200;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid #E5E3DE;border-radius:100px;padding:5px 6px 5px 14px;box-shadow:0 4px 16px rgba(0,0,0,.08);font-family:'Inter',sans-serif;}
+[data-theme="dark"] .vo-bar{background:#162032;border-color:#1F2D3D;}
+.vo-bar__label{font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6B7280;}
+.vo-bar__opts{display:flex;align-items:center;gap:1px;padding:2px;background:#F5F4F0;border:1px solid #E5E3DE;border-radius:100px;}
+[data-theme="dark"] .vo-bar__opts{background:#0C1221;border-color:#1F2D3D;}
+.vo-bar__opt{height:22px;padding:0 9px;display:inline-flex;align-items:center;font-size:10.5px;font-weight:600;letter-spacing:.5px;color:#6B7280;border-radius:100px;text-decoration:none;transition:all .15s;}
+.vo-bar__opt:hover{color:#111827;}
+[data-theme="dark"] .vo-bar__opt:hover{color:#F9FAFB;}
+.vo-bar__opt.is-active{background:#FFFFFF;color:#F97316;box-shadow:0 1px 3px rgba(0,0,0,.07);}
+[data-theme="dark"] .vo-bar__opt.is-active{background:#162032;}
+body{padding-top:60px !important;}
+@media(max-width:560px){.vo-bar{padding:4px 5px 4px 10px;gap:6px;}.vo-bar__label{display:none;}.vo-bar__opt{height:20px;padding:0 7px;font-size:10px;}}
+</style>
+<script>
+(function(){
+  try {
+    var stored = localStorage.getItem('id4-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+
+<div class="vo-bar" role="group" aria-label="Sélecteur de version">
+  <span class="vo-bar__label">Version</span>
+  <div class="vo-bar__opts">
+    <a class="vo-bar__opt" href="index.html">V1</a>
+    <a class="vo-bar__opt" href="v2.html">V2</a>
+    <a class="vo-bar__opt" href="v3.html">V3</a>
+    <a class="vo-bar__opt is-active" href="vo.html">VO</a>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badges">
+          <div class="hero-badge"><span class="live-dot"></span>Logiciel/Middleware d'orchestration de données</div>
+          <div class="hero-badge"><span class="live-dot"></span>Deep Tech Européen · TRL 9 · Stateless by Design</div>
+        </div>
+        <h1 class="hero-h1">
+          <span class="line">En transit.</span>
+          <span class="line">En temps réel.</span>
+          <span class="line o">Jamais stockées.</span>
+        </h1>
+        <p class="hero-desc">iD4Connect traite vos données pendant leur transit, sans les stocker, sans les dupliquer. Insights en temps réel, souveraineté garantie.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-p">Demander une démo →</a>
+          <a href="#architecture" class="btn-g">Voir l'architecture</a>
+        </div>
+      </div>
+      <div>
+        <div class="flow-card">
+          <div class="flow-card-head">
+            <span class="fch-title">Flux en transit</span>
+            <span class="fch-live"><span class="ld"></span>Temps réel</span>
+          </div>
+          <div class="flow-card-body">
+            <div class="flow-row"><div class="f-node src">ERP / SQL</div><div class="f-conn"></div><div class="f-node cell">DataCell</div><div class="f-conn"></div><div class="f-node out">KPI Métier</div></div>
+            <div class="flow-row"><div class="f-node src">IoT / MQTT</div><div class="f-conn"></div><div class="f-node cell">DataCell</div><div class="f-conn"></div><div class="f-node out">Alerte live</div></div>
+            <div class="flow-row"><div class="f-node src">API / SaaS</div><div class="f-conn"></div><div class="f-node cell">DataCell</div><div class="f-conn"></div><div class="f-node out">Dashboard</div></div>
+          </div>
+          <div class="flow-card-foot">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Aucune donnée stockée au passage
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AGNOSTIC ═══ -->
+<section id="agnostic" class="reveal">
+  <div class="wrap">
+    <div class="center-head">
+      <div class="pill">Déploiement Agnostique</div>
+      <h2 class="sec-title">S'adapte à votre environnement.</h2>
+      <p class="sec-sub">On-premise, cloud privé, multi-cloud : iD4Connect s'adapte à votre infrastructure sans migration ni refonte.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="cloud"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 11a2.5 2.5 0 0 0-2.3-4 4 4 0 0 0-7.3 1A2.5 2.5 0 0 0 3 12.5h8.3a2.5 2.5 0 0 0 1.5-1.5z"/></svg>Cloud</button>
+      <button class="tab-btn" data-tab="hybrid"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="8" r="3.5"/><circle cx="11" cy="8" r="3.5"/></svg>Hybride</button>
+      <button class="tab-btn" data-tab="onprem"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2 3 4.5v4.5c0 2.8 2 5.2 5 6 3-.8 5-3.2 5-6V4.5L8 2z"/><path d="M6 8l1.5 1.5L10 7"/></svg>On-Premise</button>
+    </div>
+    <div class="tab-panel active" id="tab-cloud">
+      <div class="panel-left">
+        <h3>Dans le cloud</h3>
+        <p>Compatible avec tous les hébergeurs cloud, en mode souverain. Tout s'exécute dans votre espace, pas dans le nôtre.</p>
+        <div class="pfeats"><div class="pf">Compatible tous hébergeurs cloud</div><div class="pf">Aucune dépendance à un fournisseur</div><div class="pf">Monte en charge instantanément</div></div>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="14"/><ellipse cx="24" cy="24" rx="6" ry="14"/><path d="M10 24h28"/><path d="M12 17h24M12 31h24"/></svg></div>
+        <div class="pv-label">Votre cloud, vos règles</div>
+        <div class="pv-sub">iD4Connect se déploie dans votre espace cloud. Vos données ne sont jamais stockées chez nous.</div>
+        <div class="pv-tags"><span class="pv-tag">Tous hébergeurs</span><span class="pv-tag">Souverain</span><span class="pv-tag">Évolutif</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-hybrid">
+      <div class="panel-left">
+        <h3>Architecture Hybride</h3>
+        <p>Combinez vos serveurs locaux et le cloud selon la sensibilité de vos données. Un seul pilotage, plusieurs environnements.</p>
+        <div class="pfeats"><div class="pf">Pilotage unifié sur tous les environnements</div><div class="pf">Contrôle fin donnée par donnée</div><div class="pf">Migration progressive, sans coupure</div><div class="pf">Données sensibles en local, le reste en cloud</div></div>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 16A12 12 0 0 0 13.5 13"/><path d="M16 32a12 12 0 0 0 18.5 3"/><path d="M13.5 13L10 16.5l4 2"/><path d="M34.5 35l3.5-3.5-4-2"/></svg></div>
+        <div class="pv-label">Local + Cloud<br>Un seul pilotage</div>
+        <div class="pv-sub">Les données sensibles restent chez vous, les flux légers passent par le cloud.</div>
+        <div class="pv-tags"><span class="pv-tag">Pilotage unifié</span><span class="pv-tag">Migration progressive</span></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-onprem">
+      <div class="panel-left">
+        <h3>Déploiement dans vos locaux</h3>
+        <p>Installation complète sur vos serveurs. Données 100% sous votre contrôle, jamais exposées à l'extérieur. Idéal pour le secteur public et la santé.</p>
+        <div class="pfeats"><div class="pf">Réseau totalement isolé</div><div class="pf">Applications totalement cloisonnées</div><div class="pf">Aucune connexion vers l'extérieur</div><div class="pf">Déploiement en jours</div></div>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="22" width="24" height="16" rx="3"/><path d="M17 22v-5a7 7 0 0 1 14 0v5"/><circle cx="24" cy="31" r="2"/><path d="M24 33v3"/></svg></div>
+        <div class="pv-label">Données 100% dans<br>votre périmètre</div>
+        <div class="pv-sub">Aucune connexion vers l'extérieur. Idéal secteur public, santé, défense.</div>
+        <div class="pv-tags"><span class="pv-tag">Totalement isolé</span><span class="pv-tag">Aucune dépendance</span><span class="pv-tag">En jours</span></div>
+      </div>
+    </div>
+    <div class="cs" style="justify-content:center;margin-top:24px;">
+      <span class="cs-item g">✓ Aucune dépendance externe</span><span class="cs-item g">✓ Compatible avec votre existant</span><span class="cs-item g">✓ Déploiement en jours</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DT ═══ -->
+<section id="dt" class="reveal">
+  <div class="wrap">
+    <div class="dt-head">
+      <div class="pill">Complémentarité</div>
+      <h2>iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
+      <p>Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer, sans formation longue, sans migration de données.</p>
+    </div>
+    <div class="dt-grid">
+      <div class="dt-card reveal" onclick="openCompModal('bi')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/><path d="M2 9L6 6l4 1 4-4"/></svg></div><div><div class="dt-tool-name">Votre outil BI</div><div class="dt-tool-sub">Tableaux de bord alimentés en batch</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">BI temps réel</div><div class="dt-result-sub">Dashboards live, sans DWH ni pipeline à maintenir en amont</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('siem')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div><div><div class="dt-tool-name">Votre SIEM / EDR</div><div class="dt-tool-sub">Logs bruts, corrélation limitée</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Détection enrichie</div><div class="dt-result-sub">Contexte métier sur chaque alerte, corrélation cross-sources en transit</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('crm')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="5" height="4" rx="1"/><rect x="9" y="3" width="5" height="4" rx="1"/><rect x="2" y="9" width="5" height="4" rx="1"/><rect x="9" y="9" width="5" height="4" rx="1"/><path d="M4.5 7v2M11.5 7v2M7 5h2M7 11h2"/></svg></div><div><div class="dt-tool-name">Votre CRM / ERP</div><div class="dt-tool-sub">Données cloisonnées par outil</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Vision unifiée</div><div class="dt-result-sub">Croisement multi-sources instantané, sans duplication ni migration</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('etl')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 4h3v8H2zM7 2h3v12H7zM12 6h2v6h-2z"/></svg></div><div><div class="dt-tool-name">Votre ETL</div><div class="dt-tool-sub">Batch, staging, latence accumulée</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Pipeline allégé</div><div class="dt-result-sub">iD4Connect absorbe les flux temps réel, votre ETL garde les traitements batch complexes</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('dwh')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="8" cy="4" rx="5" ry="1.8"/><path d="M3 4v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V4"/><path d="M3 7v3c0 1 2.2 1.8 5 1.8s5-.8 5-1.8V7"/><path d="M3 10v2c0 1 2.2 1.8 5 1.8s5-.8 5-1.8v-2"/></svg></div><div><div class="dt-tool-name">Votre Data Warehouse</div><div class="dt-tool-sub">Données centralisées, schéma figé</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Insights à la source</div><div class="dt-result-sub">Données vivantes interrogées directement, sans centralisation</div></div>
+      </div>
+      <div class="dt-card reveal" onclick="openCompModal('esb')">
+        <div class="dt-card-top"><div class="dt-card-meta">Vous avez</div><div class="dt-tool"><div class="dt-tool-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="6" width="4" height="4" rx="1"/><rect x="11" y="6" width="4" height="4" rx="1"/><rect x="6" y="3" width="4" height="4" rx="1"/><rect x="6" y="9" width="4" height="4" rx="1"/><path d="M5 8h1M10 8h1M8 7V5M8 9v2"/></svg></div><div><div class="dt-tool-name">Votre ESB / Middleware</div><div class="dt-tool-sub">Transport applicatif, sans intelligence data</div></div></div></div>
+        <div class="dt-plus"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v8M2 6h8"/></svg><span class="dt-plus-lbl">iD4Connect</span></div>
+        <div class="dt-result"><div class="dt-result-lbl">Résultat</div><div class="dt-result-title">Transport intelligent</div><div class="dt-result-sub">Transformation sémantique en transit, logique métier embarquée</div></div>
+      </div>
+    </div>
+    <div class="dt-note">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="7" x2="8" y2="11" stroke-linecap="round"/><circle cx="8" cy="5" r=".8" fill="currentColor"/></svg>
+      <span><strong>Votre équipe garde ses outils.</strong> iD4Connect s'intègre en quelques jours, sans migration de données, sans formation longue, sans risque.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOV ═══ -->
+<section id="sov" class="reveal">
+  <div class="wrap">
+
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="pill">Souveraineté & Gouvernance</div>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;letter-spacing:-.5px;line-height:1.1;color:var(--t9);margin-bottom:12px;">
+        Vos données ne quittent<br>jamais votre infrastructure.
+      </h2>
+      <p style="font-size:15px;color:var(--t5);max-width:560px;margin:0 auto;line-height:1.7;">
+        Dans un monde soumis aux lois d'accès extraterritorial, l'hébergement chez des acteurs soumis au droit américain crée un risque juridique réel, même si leurs serveurs sont physiquement en Europe.
+      </p>
+    </div>
+
+    <div class="sov-manifeste">
+      <div class="sov-ligne">
+        <div class="sov-ligne-stat">
+          <span class="sov-stat-n">0</span>
+          <span class="sov-stat-u">octet stocké<br>hors de votre SI</span>
+        </div>
+        <div class="sov-ligne-sep"></div>
+        <div class="sov-ligne-body">
+          <div class="sov-ligne-label">Données à la source</div>
+          <div class="sov-ligne-title">Vos données restent dans votre périmètre.</div>
+          <div class="sov-ligne-desc">Les DataCells se déploient directement dans votre infrastructure. Vos données transitent exclusivement dans votre environnement, jamais dans le nôtre.</div>
+        </div>
+      </div>
+      <div class="sov-ligne">
+        <div class="sov-ligne-stat">
+          <span class="sov-stat-n">5×</span>
+          <span class="sov-stat-u">moins cher qu'une<br>plateforme data classique</span>
+        </div>
+        <div class="sov-ligne-sep"></div>
+        <div class="sov-ligne-body">
+          <div class="sov-ligne-label">Conformité by design</div>
+          <div class="sov-ligne-title">La conformité est l'architecture, pas une option.</div>
+          <div class="sov-ligne-desc">Aucune copie, aucun stockage intermédiaire. La conformité n'est pas une couche ajoutée, elle est structurelle, renforcée par des modèles API à chaque transformation.</div>
+        </div>
+      </div>
+      <div class="sov-ligne">
+        <div class="sov-ligne-stat">
+          <span class="sov-stat-n">TRL9</span>
+          <span class="sov-stat-u">maturité industrielle<br>maximale</span>
+        </div>
+        <div class="sov-ligne-sep"></div>
+        <div class="sov-ligne-body">
+          <div class="sov-ligne-label">Alternative européenne</div>
+          <div class="sov-ligne-title">100% européen, sans compromis.</div>
+          <div class="sov-ligne-desc">15 ans de R&D européenne. Aucune dépendance à une juridiction étrangère. Les exigences des secteurs les plus contraints sont couvertes nativement dès le premier déploiement.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sov-risk-band">
+      <div class="sov-risk-left">
+        <div class="sov-risk-badge">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 2L1.5 13.5h13L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg>
+          Risque juridique réel
+        </div>
+        <p class="sov-risk-text">
+          Les données hébergées chez des acteurs soumis au droit américain sont <strong>juridiquement accessibles par les autorités américaines sans notification préalable</strong>, même si les serveurs sont physiquement en Europe.
+        </p>
+        <div class="sov-comply-tags" style="margin-top:16px;">
+          <span class="ctag">✓ Zéro copie, zéro stockage</span>
+          <span class="ctag">✓ Données dans votre périmètre</span>
+          <span class="ctag">✓ Souveraineté garantie</span>
+          <span class="ctag">✓ Déployé dans votre infra</span>
+        </div>
+      </div>
+      <div class="sov-risk-sources">
+        <div class="sov-risk-sources-lbl">Sources juridiques</div>
+        <a class="sov-src2" href="https://www.eurojust.europa.eu/publication/cloud-act" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 1h6l4 4v10H4V1z"/><polyline points="10 1 10 5 14 5"/></svg></div>
+          <div><div class="sov-src2-name">CLOUD Act · Eurojust</div><div class="sov-src2-ref">Agence UE · eurojust.europa.eu</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+        <a class="sov-src2" href="https://cdt.org/insights/fisa-702-expansion-impact-on-the-eu-u-s-data-privacy-framework/" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="5" y1="6" x2="11" y2="6"/><line x1="5" y1="9" x2="9" y2="9"/></svg></div>
+          <div><div class="sov-src2-name">FISA 702 & Data Privacy · CDT</div><div class="sov-src2-ref">Center for Democracy & Technology · cdt.org</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+        <a class="sov-src2" href="https://iapp.org/news/a/the-schrems-ii-decision-eu-us-data-transfers-in-question" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><line x1="5" y1="8" x2="11" y2="8"/><line x1="8" y1="5" x2="8" y2="11"/></svg></div>
+          <div><div class="sov-src2-name">Arrêt Schrems II · IAPP</div><div class="sov-src2-ref">Int'l Assoc. of Privacy Professionals · iapp.org</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+        <a class="sov-src2" href="https://www.heise.de/news/Gutachten-US-Behoerden-haben-weitreichenden-Zugriff-auf-europaeische-Cloud-Daten-11111043.html" target="_blank" rel="noopener">
+          <div class="sov-src2-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5z"/></svg></div>
+          <div><div class="sov-src2-name">Rapport BMI · déc. 2025 · Heise</div><div class="sov-src2-ref">Accès US aux clouds européens · heise.de</div></div>
+          <svg class="sov-src2-arr" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 9.5l7-7M4 2.5h5.5v5.5"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PARTNERS MASQUÉ ═══
+<section id="partners" class="reveal">
+  <div class="wrap">
+    <div class="pt-head">
+      <div class="pill">Partenaires</div>
+      <h2>Ils déploient iD4Connect</h2>
+      <p>Des organisations qui transforment leur approche de la data</p>
+    </div>
+    <div class="pt-logos">
+      <a href="https://heliaq.fr/" target="_blank" rel="noopener" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="4" rx="1"/><rect x="2" y="9" width="12" height="4" rx="1"/><circle cx="12.5" cy="5" r=".8" fill="currentColor" stroke="none"/><circle cx="12.5" cy="11" r=".8" fill="currentColor" stroke="none"/></svg></div>
+        <div><div class="pt-name">Heliaq</div><div class="pt-tag">ESN · Cloud, Cyber & Services Managés · France</div></div>
+      </a>
+      <a href="https://www.nrb.be/fr" target="_blank" rel="noopener" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2 4v4c0 3.3 2.5 6.1 6 7 3.5-.9 6-3.7 6-7V4L8 1.5z"/></svg></div>
+        <div><div class="pt-name">NRB</div><div class="pt-tag">Top 3 ICT · Infrastructure & Cloud · Belgique</div></div>
+      </a>
+      <a href="https://www.nrjbi.com/" target="_blank" rel="noopener" class="pt-chip">
+        <div class="pt-chip-ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="9" width="3" height="5" rx=".5"/><rect x="6.5" y="5" width="3" height="9" rx=".5"/><rect x="11" y="2" width="3" height="12" rx=".5"/></svg></div>
+        <div><div class="pt-name">NRJBI</div><div class="pt-tag">Conseil BI & Data · MicroStrategy, Power BI · France</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+═══ FIN PARTNERS MASQUÉ -->
+<!-- ═══ CTA ═══ -->
+<section id="cta">
+  <div class="wrap">
+    <h2>Prêt à reprendre le contrôle de vos données ?</h2>
+    <p>Découvrez comment iD4Connect s'intègre à votre infrastructure en 30 minutes.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-w">Demander une démo →</a>
+      <a href="#architecture" class="btn-wo">Explorer l'architecture</a>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL COMPLEMENTARITE -->
+<div class="cm-overlay" id="cm-overlay">
+  <div class="cm-modal">
+    <div class="cm-header">
+      <div class="cm-top">
+        <div class="cm-title-area"><div class="cm-icon" id="cm-icon"></div><div><div class="cm-badge" id="cm-badge"></div><h2 id="cm-title"></h2></div></div>
+        <button class="cm-close" onclick="closeCompModal()">&#10005;</button>
+      </div>
+      <p class="cm-desc" id="cm-desc"></p>
+      <div class="cm-tabs" id="cm-tabs"></div>
+    </div>
+    <div class="cm-body" id="cm-body"></div>
+  </div>
+</div>
+
+
+<script>
+if(typeof theme==='undefined') var theme=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+if(typeof applyTheme==='undefined') var applyTheme=function(t){document.documentElement.setAttribute('data-theme',t);document.body&&document.body.setAttribute('data-theme',t);theme=t;};
+applyTheme(theme);
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+  });
+});
+
+async function loadComp(id,file){
+  try{const r=await fetch(file);if(!r.ok)return;const html=await r.text();const el=document.getElementById(id);if(!el)return;el.innerHTML=html;el.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.head.appendChild(ns);});}catch(e){}
+}
+
+window.addEventListener('load',async()=>{
+  // header géré par WordPress
+  // footer géré par WordPress
+  const t=localStorage.getItem('id4-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  document.documentElement.setAttribute('data-theme',t);
+  document.body.setAttribute('data-theme',t);
+  document.addEventListener('themeChange',e=>{document.documentElement.setAttribute('data-theme',e.detail);document.body.setAttribute('data-theme',e.detail);});
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.remove('hidden');e.target.classList.add('visible');}
+      else{const rect=e.target.getBoundingClientRect();if(rect.top<0){e.target.classList.remove('visible');e.target.classList.add('hidden');}else{e.target.classList.remove('visible','hidden');}}
+    });
+  },{threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+});
+
+const CM_TAB_ICONS={
+  compare:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h12M8 2v12"/></svg>',
+  integration:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="8" r="3"/><circle cx="11" cy="8" r="3"/></svg>',
+  benefices:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="2 12 6 6 10 9 14 3"/><polyline points="11 3 14 3 14 6"/></svg>',
+  technique:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'
+};
+const CM_ICONS={bolt:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L4 9h5l-2 6 7-9H9L11 1z" stroke-linejoin="round"/></svg>',shield:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5L2.5 4v4c0 3.3 2.3 6.1 5.5 7 3.2-.9 5.5-3.7 5.5-7V4L8 1.5z"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>',check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M5.5 8l2 2 3.5-3.5"/></svg>',search:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>',target:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg>',chart:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l4-5 3 2.5L14 5"/><path d="M11 5h3v3"/></svg>',money:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="8" y1="1" x2="8" y2="15"/><path d="M11.5 4.5H6.5a2 2 0 0 0 0 4h3a2 2 0 0 1 0 4H4.5"/></svg>',users:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="5" r="2.5"/><path d="M1 14c0-2.8 2.2-5 5-5s5 2.2 5 5"/><circle cx="12" cy="5.5" r="1.8"/><path d="M12 9c1.7 0 3 1.3 3 3"/></svg>',ban:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M3.8 3.8l8.4 8.4"/></svg>',clock:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 4.5V8l2.5 1.5"/></svg>',wrench:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.3 1.5l-1.8 1.8 4 4 1.8-1.8a1 1 0 0 0 0-1.4l-2.6-2.6a1 1 0 0 0-1.4 0z"/><path d="M8.5 3.3L1.5 10.3v3.2h3.2l7-7"/></svg>'};
+const COMP_DATA={bi:{title:'BI temps reel',color:'#3B82F6',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="8" width="4" height="13"/><rect x="17" y="4" width="4" height="17"/></svg>',desc:"iD4Connect ne remplace pas votre outil BI, il le rend temps reel. Vos dashboards Power BI, Tableau ou Qlik accedent directement aux sources via les DataCells, avec des donnees fraiches a la seconde pres.",avant:[{l:'Donnees en batch',d:'Rafraichissement nocturne ou toutes les heures'},{l:'DWH a maintenir',d:'Infrastructure lourde, licences elevees'},{l:'Pipelines ETL lourds',d:'Dizaines de jobs a maintenir et debugger'},{l:'Latence decisionnelle',d:'Decisions basees sur des donnees decalees'}],apres:[{l:'Temps reel natif',d:'Chaque evenement visible en moins de 2 secondes'},{l:'Zero DWH',d:'Interrogation des sources a la volee'},{l:'Zero pipeline',d:'Transformation a la source, dans le flux'},{l:'Decision instantanee',d:'KPIs a jour en continu'}],integrations:[{name:'Power BI',format:'DirectQuery / REST',desc:'Connexion native via DirectQuery, visuels mis a jour en temps reel.',protocols:['DirectQuery','REST API','Push Dataset'],color:'#F59E0B'},{name:'Tableau',format:'Live Connection / JDBC',desc:'Connexion live, les extraits .hyper deviennent optionnels.',protocols:['JDBC Live','Hyper API','REST API'],color:'#1E40AF'},{name:'Qlik Sense',format:'Direct Access / REST',desc:"Donnees temps reel sans rechargement d'app.",protocols:['ODBC Direct','REST connector','QVD streaming'],color:'#059669'},{name:'Grafana / Superset',format:'SQL / Plugin',desc:'Connexion native pour le monitoring temps reel et l\'IoT.',protocols:['PostgreSQL wire','Plugin Grafana','REST API'],color:'#E11D48'}],kpis:[{label:'',value:'Donnees temps reel',detail:'',icon:'bolt'},{label:'',value:'Zero DWH',detail:'',icon:'ban'},{label:'',value:'Zero pipeline',detail:'',icon:'ban'},{label:'',value:'Insight instantane',detail:'',icon:'search'}],gains:[{t:'Reduction TCO de 60-80%',d:'Suppression des licences DWH et ETL.'},{t:'Deploiement 10x plus rapide',d:'Nouveau dashboard en heures, pas en semaines.'},{t:'Donnees toujours fraiches',d:'Etat reel a la seconde.'},{t:'Autonomie des metiers',d:"Les equipes creent sans dependre de l'IT."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + cache intelligent'},{l:'Exposition',v:'SQL endpoint, REST API, OData'},{l:'Protocoles',v:'JDBC, ODBC, REST, WebSocket'},{l:'Mode',v:'Stateless, zero copie'},{l:'Scalabilite',v:'1 DataCell par domaine'}],outils:[{name:'Power BI',compat:'Desktop, Service, Embedded'},{name:'Tableau',compat:'Desktop, Server, Cloud'},{name:'Qlik Sense',compat:'Enterprise, Cloud'},{name:'Grafana',compat:'OSS, Cloud, Enterprise'},{name:'Superset',compat:'Self-hosted, Preset Cloud'},{name:'Looker / Metabase',compat:'Cloud, Self-hosted'}],compliance:['Zero-copy','Chiffrement TLS/mTLS','OAuth2 / SSO','Audit trail natif','Souverainete europeenne'],callout:{title:'Votre BI, sans les contraintes',text:'iD4Connect agit comme une <strong>couche de federation intelligente</strong> entre vos sources et votre outil BI. <strong>Power BI, Tableau ou Qlik</strong> continuent comme avant, mais les donnees arrivent en temps reel.'}},siem:{title:'Detection enrichie',color:'#64748B',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>',desc:"iD4Connect ne remplace pas votre SIEM, il le rend intelligent.",avant:[{l:'Logs bruts non contextualises',d:'Millions de logs sans contexte metier'},{l:'Correlation limitee',d:'Impossible de croiser securite et donnees metier'},{l:'80% de faux positifs',d:"Les analystes trient au lieu d'investiguer"},{l:'Investigation lente',d:'45 min par dossier en moyenne'}],apres:[{l:'Alertes contextualisees',d:'Identite, application, donnees, impact business'},{l:'Correlation cross-sources',d:'Securite + flux metier + acces applicatifs'},{l:'Faux positifs ÷ 5',d:'Le contexte elimine 80% du bruit'},{l:'Investigation en 10 min',d:'Dossier pre-assemble automatiquement'}],integrations:[{name:'Splunk',format:'HEC / REST / Syslog',desc:'Enrichissement via HTTP Event Collector.',protocols:['HEC','REST API','Syslog CEF'],color:'#65A30D'},{name:'Microsoft Sentinel',format:'Log Analytics / CEF',desc:'Integration native Azure Sentinel.',protocols:['Log Analytics API','CEF / Syslog','Event Hub'],color:'#2563EB'},{name:'QRadar (IBM)',format:'Syslog / REST / STIX',desc:'Enrichissement des offenses avec contexte metier.',protocols:['Syslog CEF','REST API','STIX/TAXII'],color:'#1E40AF'},{name:'Elastic Security',format:'REST / Beats / Logstash',desc:'Enrichissement des documents ECS avant indexation.',protocols:['Elasticsearch API','Logstash filter','Filebeat'],color:'#E11D48'}],kpis:[{label:'',value:'Alertes fiabilisees',detail:'',icon:'target'},{label:'',value:'Investigation acceleree',detail:'',icon:'search'},{label:'',value:'Resolution rapide',detail:'',icon:'bolt'},{label:'',value:'Couverture etendue',detail:'',icon:'shield'}],gains:[{t:'SOC plus efficace',d:'Les analystes se concentrent sur les vraies menaces.'},{t:'Menaces invisibles detectees',d:'Exfiltration, insider threat, mouvements lateraux.'},{t:'Conformite reglementaire',d:'Tracabilite complete des acces aux donnees.'},{t:'ROI en 3 mois',d:"Reduction immediate du volume d'alertes."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Enrichissement streaming + correlation'},{l:'IA embarquee',v:'Scoring menace, graphe comportemental'},{l:'Protocoles',v:'Syslog, CEF, STIX, REST, Kafka'},{l:'Mode',v:'Stateless, zero donnee nominative'},{l:'Scalabilite',v:'1 DataCell par domaine / source'}],outils:[{name:'Splunk',compat:'Enterprise, Cloud, SOAR'},{name:'Sentinel',compat:'Azure, Logic Apps'},{name:'QRadar',compat:'CE, Enterprise, Cloud'},{name:'Elastic',compat:'Cloud, Self-managed'},{name:'Chronicle',compat:'SecOps, Cloud'},{name:'Wazuh',compat:'Open Source'}],compliance:['Haute disponibilite','Chiffrement TLS/mTLS','Zero Trust','Audit trail natif','Souverainete europeenne'],callout:{title:'Votre SIEM, avec la vision donnees',text:'iD4Connect agit comme une <strong>couche d\'enrichissement contextuel</strong>. <strong>Splunk, Sentinel ou QRadar</strong> continuent comme avant, chaque alerte arrive enrichie.'}},etl:{title:'Zero staging',color:'#0D9488',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="4" y="4" width="4" height="16" rx="1"/><rect x="10" y="4" width="4" height="16" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>',desc:"iD4Connect ne remplace pas votre ETL du jour au lendemain, il le rend obsolete progressivement.",avant:[{l:'Traitements batch',d:'Extraction, transformation, chargement par lots la nuit'},{l:'Zone de staging obligatoire',d:'Copie temporaire avant chaque transformation'},{l:'Copie systematique',d:'Source vers staging vers cible, cout croissant'},{l:'Maintenance lourde',d:'Centaines de jobs a monitorer et debugger'}],apres:[{l:'Traitement en transit',d:'Transformation a la volee, resultat en millisecondes'},{l:'Zero staging',d:'Jamais copiees ni stockees temporairement'},{l:'Zero copie',d:'Donnees restent a la source'},{l:'Zero maintenance',d:'Adaptation automatique aux changements de schema'}],integrations:[{name:'Talend',format:'REST / JDBC / Kafka',desc:'Coexistence avec les jobs Talend. Migration progressive possible.',protocols:['REST API','JDBC','Kafka bridge'],color:'#0D9488'},{name:'Informatica',format:'REST / JDBC / PowerCenter',desc:'Complement pour le temps reel.',protocols:['REST API IDMC','JDBC/ODBC','Webhook'],color:'#1E40AF'},{name:'SSIS / Azure Data Factory',format:'REST / SQL / Azure',desc:'Memes destinations que SSIS/ADF mais en temps reel.',protocols:['REST API','SQL Server','Azure Event Hub'],color:'#7C3AED'},{name:'Apache NiFi / Airflow',format:'REST / Kafka / S3',desc:'Remplace les processors NiFi lourds par des DataCells legeres.',protocols:['REST API trigger','Kafka Connect','S3'],color:'#EA580C'}],kpis:[{label:'',value:'Traitement en transit',detail:'',icon:'bolt'},{label:'',value:'Zero staging',detail:'',icon:'ban'},{label:'',value:'Zero pipeline',detail:'',icon:'ban'},{label:'',value:'Conformite native',detail:'',icon:'shield'}],gains:[{t:'TCO divise par 5',d:'Suppression des licences ETL, du stockage staging et des equipes pipeline.'},{t:'Liberation des equipes data',d:"De 70% de maintenance a 80% de creation de valeur."},{t:'Conformite by architecture',d:'Zero copie = zero surface supplementaire.'},{t:'Migration progressive',d:'Chaque job remplace individuellement, zero risque.'}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Stream processing a la volee'},{l:'Transformations',v:'Map, filter, join, aggregate, enrich'},{l:'Protocoles',v:'JDBC, REST, Kafka, MQTT, fichiers'},{l:'Mode',v:'Stateless, zero staging'},{l:'Scalabilite',v:'1 DataCell par flux / domaine'}],outils:[{name:'Talend',compat:'Open Studio, Cloud, DI'},{name:'Informatica',compat:'PowerCenter, IDMC'},{name:'SSIS',compat:'SQL Server, Azure ADF'},{name:'NiFi',compat:'OSS, HDF, Cloud'},{name:'Airflow',compat:'OSS, MWAA, Composer'},{name:'Matillion / Fivetran',compat:'Cloud-native ELT'}],compliance:['Zero-staging','Zero-copie','Chiffrement TLS/mTLS','Lineage automatique','Souverainete europeenne'],callout:{title:'Votre ETL, sans les contraintes',text:'Chaque <strong>DataCell</strong> prend en charge un flux : elle transforme, enrichit et route en transit, sans jamais copier. Migration <strong>un job a la fois</strong>, sans big bang.'}},crm:{title:'Vision unifiee',color:'#7C3AED',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>',desc:"iD4Connect ne remplace pas votre CRM ni votre ERP, il les fait dialoguer.",avant:[{l:'Donnees isolees en silos',d:'CRM ignore les commandes ERP, ERP ignore le CRM'},{l:'Aucun croisement natif',d:'Export CSV + Excel + prieres'},{l:'Donnees dupliquees',d:'Meme client avec 4 orthographes differentes'},{l:'Integrations point-a-point',d:'N x (N-1)/2 connecteurs a maintenir'}],apres:[{l:'Vision unifiee instantanee',d:'DataGraph federe CRM, ERP, facturation en une vue unique'},{l:'Croisement multi-sources',d:'Une requete interroge tous les SI simultanement'},{l:'Golden record virtuel',d:'Reconciliation automatique sans MDM lourd'},{l:'Architecture en etoile legere',d:'1 point de connexion au lieu de N x (N-1)/2'}],integrations:[{name:'Salesforce',format:'REST / SOQL / CDC',desc:'Connexion native via REST API et Change Data Capture.',protocols:['REST API / SOQL','Bulk API 2.0','CDC','Platform Events'],color:'#0EA5E9'},{name:'SAP',format:'RFC / OData / BAPI',desc:'Integration profonde ECC, S/4HANA, CRM, BW.',protocols:['RFC / BAPI','OData','IDOC','CDS Views'],color:'#2563EB'},{name:'Microsoft Dynamics',format:'REST / OData / Dataverse',desc:'Connexion native Dynamics 365 et Dataverse.',protocols:['Web API OData v4','Dataverse SDK','Azure Service Bus'],color:'#7C3AED'},{name:'HubSpot / Zoho / Pipedrive',format:'REST / Webhook / GraphQL',desc:'Integration CRM mid-market et PME.',protocols:['REST API v3','GraphQL','Webhook','OAuth2'],color:'#EA580C'}],kpis:[{label:'',value:'Vue client 360',detail:'',icon:'users'},{label:'',value:'Integration simplifiee',detail:'',icon:'check'},{label:'',value:'Zero duplication',detail:'',icon:'ban'},{label:'',value:'Deploiement rapide',detail:'',icon:'bolt'}],gains:[{t:'Fin des silos sans big bang',d:'iD4Connect federe les SI existants en 3 semaines, pas en 18 mois.'},{t:'Productivite commerciale +30%',d:'Fiche client complete en 1 clic au lieu de 4 applications.'},{t:'Qualite de donnees sans effort',d:'Golden record virtuel, incoherences detectees en temps reel.'},{t:'Scalabilite sans dette technique',d:'Ajouter un SI = 1 connecteur, pas N integrations.'}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + golden record virtuel'},{l:'IA embarquee',v:'Reconciliation, deduplication, matching'},{l:'Protocoles',v:'REST, OData, RFC, JDBC, GraphQL'},{l:'Mode',v:'Stateless, zero copie'},{l:'Scalabilite',v:'1 DataCell par domaine metier'}],outils:[{name:'Salesforce',compat:'Sales, Service, Platform'},{name:'SAP',compat:'ECC, S/4HANA, CRM'},{name:'Dynamics',compat:'365, Dataverse, Power Platform'},{name:'HubSpot',compat:'CRM, Marketing, Service'},{name:'Oracle',compat:'NetSuite, ERP Cloud'},{name:'Sage / Cegid',compat:'X3, 100c, Y2'}],compliance:['Zero-copie','Zero-duplication','Chiffrement TLS/mTLS','OAuth2 / SSO / SAML','Souverainete europeenne'],callout:{title:'Vos SI, enfin connectes',text:'iD4Connect agit comme un <strong>tissu connectif intelligent</strong>. Le <strong>DataGraph</strong> federe CRM, ERP, facturation et support en une vue unifiee temps reel.'}},dwh:{title:'Insights a la source',color:'#D97706',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',desc:"iD4Connect ne remplace pas votre Data Warehouse du jour au lendemain, il le rend optionnel.",avant:[{l:'Donnees centralisees, copiees',d:'Chaque copie coute du stockage et desynchronise'},{l:'Schema fige et rigide',d:'Chaque nouvelle question = modification du schema'},{l:'Couts exponentiels',d:'La facture croit avec le volume, meme sans usage'},{l:'Donnees decalees',d:'Au minimum quelques heures de retard'}],apres:[{l:'Donnees vivantes a la source',d:'Chaque requete accede a la derniere version'},{l:'Schema flexible a la volee',d:'Nouvelle question = configurer une DataCell'},{l:'Couts previsibles et bas',d:'Zero stockage, cout proportionnel aux requetes'},{l:'Insights temps reel',d:'Resultats calcules a la demande sur donnees vivantes'}],integrations:[{name:'Snowflake',format:'SQL / REST / Iceberg',desc:'Coexistence : iD4Connect gere le temps reel, Snowflake conserve l\'historique.',protocols:['SQL endpoint','Apache Iceberg','REST API'],color:'#0EA5E9'},{name:'Google BigQuery',format:'SQL / REST / Storage API',desc:'Evite les full table scans couteux.',protocols:['BigQuery SQL','Storage Read API','Pub/Sub'],color:'#2563EB'},{name:'Amazon Redshift',format:'SQL / Spectrum / REST',desc:'Remplace Redshift Spectrum a moindre cout.',protocols:['Redshift SQL','S3 / Parquet','Kinesis'],color:'#EA580C'},{name:'Databricks / Delta Lake',format:'SQL / Delta Sharing',desc:'Federe le temps reel, Databricks conserve ML et analyses massives.',protocols:['Databricks SQL','Delta Sharing','Unity Catalog'],color:'#EF4444'}],kpis:[{label:'',value:'Zero stockage',detail:'',icon:'ban'},{label:'',value:'Donnees toujours fraiches',detail:'',icon:'bolt'},{label:'',value:'Insight a la demande',detail:'',icon:'search'},{label:'',value:'Zero copie',detail:'',icon:'shield'}],gains:[{t:'Facture Cloud ÷ 3 a 10',d:'Elimination du stockage et reduction du compute en federant a la source.'},{t:'Agilite metier retrouvee',d:"Une DataCell en heures, pas 3 semaines de modelisation."},{t:'Donnees toujours a jour',d:'Insights calcules sur donnees vivantes.'},{t:'Migration progressive',d:"Le DWH reste en place. Chaque cas d'usage migre individuellement."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Federation SQL + query pushdown'},{l:'Optimisation',v:'Cache intelligent, prediction requetes'},{l:'Protocoles',v:'JDBC, ODBC, REST, OData, Parquet'},{l:'Mode',v:'Stateless, zero stockage'},{l:'Scalabilite',v:"1 DataCell par domaine / cas d'usage"}],outils:[{name:'Snowflake',compat:'Standard, Enterprise, VPS'},{name:'BigQuery',compat:'Standard, Enterprise'},{name:'Redshift',compat:'Provisioned, Serverless'},{name:'Databricks',compat:'SQL, Runtime, Unity'},{name:'Synapse',compat:'Dedicated, Serverless'},{name:'PostgreSQL / DuckDB',compat:'OSS, Cloud managed'}],compliance:['Zero-copy','Zero-storage','Chiffrement TLS/mTLS','Query audit trail','Souverainete europeenne'],callout:{title:'Votre DWH, sans le cout ni la rigidite',text:'Chaque <strong>DataCell</strong> interroge directement les sources. <strong>Snowflake, BigQuery ou Redshift</strong> reste pour l\'historique profond. Facture <strong>÷3 a ÷10</strong>.'}},esb:{title:'Transport intelligent',color:'#A855F7',icon:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3m-6.36-2.64l2.12-2.12m8.48-8.48l2.12-2.12M3 12h3m12 0h3M5.64 5.64l2.12 2.12m8.48 8.48l2.12 2.12"/></svg>',desc:"iD4Connect ne remplace pas votre ESB, il le rend intelligent.",avant:[{l:'Transport applicatif brut',d:"L'ESB route sans comprendre le contenu"},{l:'Zero intelligence data',d:'Pas de transformation, pas de scoring'},{l:'Architecture SPOF',d:'Point unique de defaillance'},{l:'Couplage fort entre SI',d:'Chaque changement de contrat casse les flux en aval'}],apres:[{l:'Transport + intelligence',d:'Transformation, enrichissement et analyse en transit'},{l:'Logique metier embarquee',d:'Regles, calculs, scoring, anonymisation dans le flux'},{l:'Architecture distribuee',d:'Chaque DataCell autonome, zero SPOF'},{l:'Decouplage total',d:'Le DataGraph abstrait les formats sources'}],integrations:[{name:'MuleSoft',format:'REST / AMQP / JMS',desc:"Coexistence avec Anypoint. Les API Experience consomment les DataCells.",protocols:['REST API / RAML','AMQP / JMS','Anypoint MQ'],color:'#00A2E0'},{name:'IBM ACE / MQ',format:'MQ / REST / SOAP',desc:'Enrichissement des messages MQ/JMS en transit avec contexte metier.',protocols:['IBM MQ (JMS)','REST API','SOAP / WSDL'],color:'#1E40AF'},{name:'Talend ESB / ServiceMix',format:'REST / JMS / CXF',desc:'Remplace les mediations Camel/CXF lourdes par des DataCells legeres.',protocols:['REST / CXF','JMS (ActiveMQ)','Camel route'],color:'#059669'},{name:'WSO2 / TIBCO / SAG',format:'REST / SOAP / JMS / Kafka',desc:'Complementarite avec les ESB enterprise.',protocols:['REST API','SOAP / WSDL','JMS / Kafka'],color:'#7C3AED'}],kpis:[{label:'',value:'Transport intelligent',detail:'',icon:'bolt'},{label:'',value:'Haute disponibilite',detail:'',icon:'check'},{label:'',value:'Scalabilite native',detail:'',icon:'chart'},{label:'',value:'SI decouples',detail:'',icon:'shield'}],gains:[{t:'ESB + cerveau data',d:'Votre ESB route, iD4Connect enrichit. Le transport devient intelligent.'},{t:'Fin du SPOF central',d:'Architecture distribuee, chaque flux autonome et resilient.'},{t:"Agilite d'integration x10",d:'Nouveau SI = configurer une DataCell, pas ecrire du XSLT.'},{t:'Migration progressive',d:"L'ESB reste en place, chaque flux migre individuellement."}],archi:[{l:'Type',v:'DataCell autonome'},{l:'Moteur',v:'Mediation intelligente + enrichissement'},{l:'Transformations',v:'Semantique, normalisation, logique metier'},{l:'Protocoles',v:'REST, SOAP, JMS, AMQP, Kafka, MQ'},{l:'Mode',v:'Stateless, zero persistance'},{l:'Scalabilite',v:'Scale-out horizontal, 1 DC par flux'}],outils:[{name:'MuleSoft',compat:'Anypoint, CloudHub'},{name:'IBM ACE / MQ',compat:'ACE, MQ, DataPower'},{name:'Talend ESB',compat:'Open Studio, Cloud'},{name:'WSO2',compat:'Micro Integrator, APIM'},{name:'TIBCO',compat:'BusinessWorks, EMS'},{name:'Apache Camel / Kafka',compat:'OSS, Confluent'}],compliance:['Haute disponibilite native','Chiffrement TLS/mTLS','Zero Trust par DataCell','Audit trail natif','Souverainete europeenne'],callout:{title:'Votre ESB, avec un cerveau',text:'iD4Connect agit comme une <strong>couche d\'intelligence embarquee</strong> dans vos flux. Votre ESB <strong>MuleSoft, IBM ACE ou WSO2</strong> continue de router, mais chaque message est transforme, enrichi et analyse en transit.'}}};
+
+let cmPopup=null,cmTab='compare';
+function openCompModal(id){cmPopup=id;cmTab='compare';const ov=document.getElementById('cm-overlay');ov.classList.add('open');renderCM();requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add('active')));document.body.style.overflow='hidden';}
+function closeCompModal(){const ov=document.getElementById('cm-overlay');ov.classList.remove('active');setTimeout(()=>{ov.classList.remove('open');document.body.style.overflow='';},280);}
+document.getElementById('cm-overlay').addEventListener('click',function(e){if(e.target===this)closeCompModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('cm-overlay').classList.contains('open'))closeCompModal();});
+function renderCM(){const d=COMP_DATA[cmPopup];if(!d)return;document.getElementById('cm-icon').innerHTML=d.icon;document.getElementById('cm-icon').style.background=d.color;document.getElementById('cm-badge').textContent='Complementarite';document.getElementById('cm-title').textContent=d.title;document.getElementById('cm-desc').textContent=d.desc;const tabs=['compare','integration','benefices','technique'];const labels={compare:'Avant / Apres',integration:'Integration',benefices:'Benefices',technique:'Technique'};document.getElementById('cm-tabs').innerHTML=tabs.map(t=>'<button class="cm-tab'+(cmTab===t?' active':'')+'" onclick="switchCMTab(\''+t+'\')">'+CM_TAB_ICONS[t]+labels[t]+'</button>').join('');renderCMBody();}
+function switchCMTab(t){cmTab=t;renderCM();}
+function renderCMBody(){const d=COMP_DATA[cmPopup],b=document.getElementById('cm-body');if(cmTab==='compare'){b.innerHTML='<div class="cm-cg"><div class="cm-col"><div class="cm-ch bef">Avant</div>'+d.avant.map(a=>'<div class="cm-ci"><div class="cm-ci-ico" style="color:var(--red);">✕</div><div><div class="cm-ci-lbl">'+a.l+'</div><div class="cm-ci-d">'+a.d+'</div></div></div>').join('')+'</div><div class="cm-col"><div class="cm-ch aft">Avec iD4Connect</div>'+d.apres.map(a=>'<div class="cm-ci"><div class="cm-ci-ico" style="color:var(--green);">✓</div><div><div class="cm-ci-lbl">'+a.l+'</div><div class="cm-ci-d">'+a.d+'</div></div></div>').join('')+'</div></div>';}
+else if(cmTab==='integration'){b.innerHTML='<span class="cm-slbl">Outils compatibles</span>'+d.integrations.map(t=>'<div class="cm-ic"><div class="cm-ic-hdr"><div class="cm-ic-logo" style="background:'+t.color+'18;border:1px solid '+t.color+'40;color:'+t.color+';">'+t.name.charAt(0)+'</div><span class="cm-ic-name">'+t.name+'</span><span class="cm-tag">'+t.format+'</span></div><p>'+t.desc+'</p><div class="cm-protos">'+t.protocols.map(p=>'<span class="cm-proto">'+p+'</span>').join('')+'</div></div>').join('');}
+else if(cmTab==='benefices'){b.innerHTML='<div class="cm-kpis">'+d.kpis.map(k=>'<div class="cm-kpi">'+(k.icon&&CM_ICONS[k.icon]?'<div class="cm-kpi-ico">'+CM_ICONS[k.icon]+'</div>':'')+'<div class="cm-kpi-val">'+k.value+'</div><div class="cm-kpi-lbl">'+k.label+'</div><div class="cm-kpi-d">'+k.detail+'</div></div>').join('')+'</div><span class="cm-slbl">Gains concrets</span>'+d.gains.map(g=>'<div class="cm-gain"><div class="cm-gain-t">'+g.t+'</div><div class="cm-gain-d">'+g.d+'</div></div>').join('');}
+else if(cmTab==='technique'){b.innerHTML='<span class="cm-slbl">Architecture DataCell</span>'+d.archi.map(a=>'<div class="cm-arch"><span class="cm-arch-lbl">'+a.l+'</span><span class="cm-arch-val">'+a.v+'</span></div>').join('')+'<br><span class="cm-slbl">Outils compatibles</span>'+d.outils.map(u=>'<div class="cm-tool-row"><span class="cm-tool-name">'+u.name+'</span><span class="cm-tool-compat">'+u.compat+'</span></div>').join('')+'<br><span class="cm-slbl">Conformite</span><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">'+d.compliance.map(c=>'<span class="cm-cp">'+c+'</span>').join('')+'</div><div class="cm-callout"><div class="cm-callout-title">'+d.callout.title+'</div><div class="cm-callout-text">'+d.callout.text+'</div></div>';}}
+</script>
+
+
+</body>
+</html>
