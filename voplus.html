@@ -61,59 +61,64 @@
 
 <!-- ============ HERO ============ -->
 <section id="hero">
+  <div class="wrap hero-meta">
+    <span>Middleware d'orchestration de données</span>
+    <span class="dot"></span>
+    <span>Deep Tech européen</span>
+    <span class="dot"></span>
+    <span>TRL 9 — maturité industrielle</span>
+  </div>
+
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <div class="hero-badges">
-        <span class="hero-badge">Logiciel d'orchestration de données</span>
-        <span class="hero-badge">Deep Tech Européen · TRL 9 · Stateless by Design</span>
-      </div>
       <h1 class="hero-h1">
-        <span class="line">En transit.</span>
-        <span class="line">En temps réel.</span>
-        <span class="line o">Jamais stockées.</span>
+        Vos données restent chez vous.<br>
+        <span class="o">iD4Connect les met en mouvement.</span>
       </h1>
       <p class="hero-desc">
-        iD4Connect est un middleware qui qualifie, enrichit et route vos flux pendant leur transit. Aucune copie. Aucun stockage permanent. Vos données restent dans votre périmètre, vos outils continuent de fonctionner, vos coûts baissent.
+        Plutôt que de copier vos données dans un nouvel entrepôt, iD4Connect installe une <strong>couche d'intelligence en transit</strong> entre vos systèmes existants. Vos flux sont qualifiés, enrichis et routés <strong>pendant leur passage</strong>, sans copie, sans staging, sans stockage permanent.
       </p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-p">Demander une démo →</a>
-        <a href="#architecture" class="btn-g">Voir l'architecture</a>
+        <a href="#produit" class="btn-g">Comprendre le produit</a>
       </div>
     </div>
 
-    <div class="hero-card">
-      <div class="flow-card">
-        <div class="flow-card-head">
-          <span class="fch-title">Flux en transit</span>
-          <span class="fch-live"><span class="ld"></span>Temps réel</span>
+    <div class="hero-diagram">
+      <div class="hd-label hd-label--top">Vos systèmes existants</div>
+      <div class="hd-row hd-row--src">
+        <span>ERP &middot; SQL</span>
+        <span>IoT &middot; MQTT</span>
+        <span>API &middot; SaaS</span>
+        <span>Cloud &middot; Files</span>
+      </div>
+
+      <div class="hd-arrow"><span></span></div>
+
+      <div class="hd-layer">
+        <div class="hd-layer-head">
+          <span class="hd-layer-tag">iD4Connect — Couche d'intelligence en transit</span>
         </div>
-        <div class="flow-card-body">
-          <div class="flow-row">
-            <div class="f-node src">ERP / SQL</div>
-            <div class="f-conn"></div>
-            <div class="f-node cell">DataCell</div>
-            <div class="f-conn"></div>
-            <div class="f-node out">KPI métier</div>
-          </div>
-          <div class="flow-row">
-            <div class="f-node src">IoT / MQTT</div>
-            <div class="f-conn"></div>
-            <div class="f-node cell">DataCell</div>
-            <div class="f-conn"></div>
-            <div class="f-node out">Alerte live</div>
-          </div>
-          <div class="flow-row">
-            <div class="f-node src">API / SaaS</div>
-            <div class="f-conn"></div>
-            <div class="f-node cell">DataCell</div>
-            <div class="f-conn"></div>
-            <div class="f-node out">Dashboard</div>
-          </div>
+        <div class="hd-layer-fns">
+          <span>Qualifier</span>
+          <span>Dédupliquer</span>
+          <span>Enrichir</span>
+          <span>Router</span>
         </div>
-        <div class="flow-card-foot">
-          Aucune donnée stockée au passage.
+        <div class="hd-layer-foot">
+          0 octet stocké &middot; 10 à 20 ms de latence &middot; conformité au flux
         </div>
       </div>
+
+      <div class="hd-arrow"><span></span></div>
+
+      <div class="hd-row hd-row--out">
+        <span>BI</span>
+        <span>SIEM</span>
+        <span>CRM &middot; ERP</span>
+        <span>DWH</span>
+      </div>
+      <div class="hd-label">Vos outils métier existants</div>
     </div>
   </div>
 
@@ -126,11 +131,41 @@
 </section>
 
 
+<!-- ============ EN BREF — qu'est-ce qu'iD4Connect ============ -->
+<section id="produit">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">Le produit en 60 secondes</span>
+      <h2 class="sec-title">Qu'est-ce qu'iD4Connect, <span class="o">concrètement</span> ?</h2>
+      <p class="sec-sub">Trois questions, trois réponses. Pour comprendre avant de plonger dans la technique.</p>
+    </div>
+
+    <ol class="brief-list">
+      <li>
+        <span class="brief-num">01</span>
+        <h3>Ce que c'est.</h3>
+        <p>Un <strong>middleware logiciel</strong>, c'est-à-dire une couche qui s'insère entre vos sources de données (ERP, IoT, API, applications métier) et vos outils de destination (BI, SIEM, dashboards, alerting). iD4Connect ne stocke rien : il <strong>traite la donnée pendant son transit</strong>.</p>
+      </li>
+      <li>
+        <span class="brief-num">02</span>
+        <h3>Ce que ça fait.</h3>
+        <p>Vos flux passent à travers des <strong>DataCells</strong>, des unités de traitement autonomes qui les valident, les dédupliquent, les enrichissent, les anonymisent si besoin, puis les routent vers la bonne destination. Tout cela en moins de vingt millisecondes, sans copie, sans entrepôt intermédiaire.</p>
+      </li>
+      <li>
+        <span class="brief-num">03</span>
+        <h3>Pourquoi ça change tout.</h3>
+        <p>Vous gardez vos outils en place. Vous économisez le coût d'un Data Warehouse classique. Vos données restent souveraines, hors juridiction étrangère. Et vos équipes voient l'information <strong>en temps réel</strong>, sans attendre les batchs de la nuit.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
 <!-- ============ TECHNOLOGIE — DataCell + DataGraph ============ -->
 <section id="technologie">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">Technologie</div>
+      <span class="sec-kicker">Technologie</span>
       <h2 class="sec-title">Deux rôles. <span class="o">Une architecture.</span></h2>
       <p class="sec-sub">iD4Connect repose sur deux briques distinctes mais complémentaires. Le <strong>DataCell</strong> traite la donnée. Le <strong>DataGraph</strong> orchestre l'ensemble.</p>
     </div>
@@ -138,7 +173,7 @@
     <div class="duo">
       <article class="duo-card">
         <header>
-          <span class="pill">DataCell</span>
+          <span class="card-kicker">DataCell</span>
           <h3>Une unité de traitement autonome.<br><span class="o">200 fonctionnalités intégrées.</span></h3>
           <p>Le DataCell s'exécute là où vit la donnée. Il qualifie, déduplique, enrichit, valide et route — en transit, sans copier.</p>
         </header>
@@ -153,7 +188,7 @@
 
       <article class="duo-card">
         <header>
-          <span class="pill">DataGraph</span>
+          <span class="card-kicker">DataGraph</span>
           <h3>Le chef d'orchestre.<br><span class="o">Il encadre, configure, coordonne.</span></h3>
           <p>Le DataGraph gouverne l'ensemble des DataCells depuis l'extérieur. Il ne touche jamais à la donnée elle-même.</p>
         </header>
@@ -174,7 +209,7 @@
 <section id="architecture">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">Architecture</div>
+      <span class="sec-kicker">Architecture</span>
       <h2 class="sec-title">Déployez là où vous êtes déjà.<br><span class="o">Sans migration. Sans risque.</span></h2>
       <p class="sec-sub">Cinq principes architecturaux fondamentaux. Trois modes de déploiement. Une seule plateforme.</p>
     </div>
@@ -219,7 +254,7 @@
 
     <div class="deploy-grid">
       <article class="dep">
-        <span class="pill">Mode 01</span>
+        <span class="card-kicker">Mode 01</span>
         <h3>Cloud</h3>
         <p>Compatible tous hébergeurs cloud, en mode souverain. Tout s'exécute dans votre espace, jamais dans le nôtre.</p>
         <ul>
@@ -229,7 +264,7 @@
         </ul>
       </article>
       <article class="dep dep--hl">
-        <span class="pill">Mode 02</span>
+        <span class="card-kicker">Mode 02</span>
         <h3>Hybride</h3>
         <p>Combinez vos serveurs locaux et le cloud selon la sensibilité de chaque flux. Un seul pilotage.</p>
         <ul>
@@ -239,7 +274,7 @@
         </ul>
       </article>
       <article class="dep">
-        <span class="pill">Mode 03</span>
+        <span class="card-kicker">Mode 03</span>
         <h3>On-Premise</h3>
         <p>Installation complète sur vos serveurs. Aucune connexion vers l'extérieur, isolation totale.</p>
         <ul>
@@ -251,9 +286,9 @@
     </div>
 
     <div class="cs">
-      <span class="cs-item g">✓ Aucune dépendance externe</span>
-      <span class="cs-item g">✓ Compatible avec votre existant</span>
-      <span class="cs-item g">✓ Déploiement en jours, pas en mois</span>
+      <span class="check-item">✓ Aucune dépendance externe</span>
+      <span class="check-item">✓ Compatible avec votre existant</span>
+      <span class="check-item">✓ Déploiement en jours, pas en mois</span>
     </div>
   </div>
 </section>
@@ -263,7 +298,7 @@
 <section id="positionnement">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">Positionnement</div>
+      <span class="sec-kicker">Positionnement</span>
       <h2 class="sec-title">iD4Connect ne remplace pas vos outils.<br><span class="o">Il les rend meilleurs.</span></h2>
       <p class="sec-sub">Vous avez déjà une infrastructure en place. iD4Connect s'y insère sans tout réarchitecturer, sans formation longue, sans migration de données.</p>
     </div>
@@ -361,7 +396,7 @@
 <section id="souverainete">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">Souveraineté &amp; Gouvernance</div>
+      <span class="sec-kicker">Souveraineté &amp; Gouvernance</span>
       <h2 class="sec-title">Conformité par conception.<br><span class="o">Pas en post-traitement.</span></h2>
       <p class="sec-sub">Les contraintes réglementaires sont appliquées au niveau du flux, dans le DataCell, en transit. iD4Connect est 100% européen et hors juridiction extraterritoriale.</p>
     </div>
@@ -374,13 +409,13 @@
       <div class="sov-right">
         <span class="comp-meta">Conformité by design</span>
         <ul class="sov-tags">
-          <li class="ctag g">RGPD</li>
-          <li class="ctag g">HDS</li>
-          <li class="ctag g">SecNumCloud</li>
-          <li class="ctag g">ISO 27001</li>
-          <li class="ctag g">NIS 2</li>
-          <li class="ctag g">DORA</li>
-          <li class="ctag g">Schrems II</li>
+          <li class="conform-tag">RGPD</li>
+          <li class="conform-tag">HDS</li>
+          <li class="conform-tag">SecNumCloud</li>
+          <li class="conform-tag">ISO 27001</li>
+          <li class="conform-tag">NIS 2</li>
+          <li class="conform-tag">DORA</li>
+          <li class="conform-tag">Schrems II</li>
         </ul>
       </div>
     </div>
@@ -415,7 +450,7 @@
 <section id="histoire">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">Notre histoire</div>
+      <span class="sec-kicker">Notre histoire</span>
       <h2 class="sec-title">Une idée née dans la recherche.<br><span class="o">Une solution taillée pour le terrain.</span></h2>
       <p class="sec-sub">iD4Connect est le fruit d'une conviction : les entreprises n'ont pas besoin de plus de stockage, elles ont besoin d'<strong>intelligence plus rapide</strong>. Issue d'un partenariat avec un centre de recherche européen actif depuis plus de 20 ans dans l'intégration des technologies émergentes.</p>
     </div>
@@ -450,7 +485,7 @@
 <section id="secteurs">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">Secteurs</div>
+      <span class="sec-kicker">Secteurs</span>
       <h2 class="sec-title">Là où la souveraineté <span class="o">n'est pas négociable.</span></h2>
       <p class="sec-sub">Neuf secteurs ont déjà déployé iD4Connect, principalement sur des cas d'usage où la donnée ne peut sortir du périmètre.</p>
     </div>
@@ -474,7 +509,7 @@
 <section id="faq">
   <div class="wrap">
     <div class="sec-head">
-      <div class="pill">FAQ</div>
+      <span class="sec-kicker">FAQ</span>
       <h2 class="sec-title">Questions <span class="o">fréquentes.</span></h2>
     </div>
 
